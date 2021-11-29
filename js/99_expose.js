@@ -16,6 +16,8 @@
 
     const console = new bootstrap.console.Console(text => isolator.makeResourceRequest('console', text));
 
+    const mutations = bootstrap.mutations;
+
     function __bootstrapRuntime() {
         if (hasBootstrapped) return;
 
@@ -40,7 +42,10 @@
         sleep: timers.sleep,
         console,
 
-        Isolator: isolator,
+        GuildContainer: mutations.GuildContainer,
+        __applyMutations: mutations.applyMutations,
+
+        // Isolator: isolator,
         __bootstrapRuntime
     }
 
